@@ -1,0 +1,40 @@
+<h1><%= @recipe['name'] %></h1>
+<h1><%= @recipe['likes'] %></h1>
+<h1><%= @recipe['servings'] %></h1>
+<h1><%= @recipe['difficulty'] %></h1>
+<h1><%= @recipe['meal_type'] %></h1>
+<h1><%= @recipe['cuisine'] %></h1>
+<% 
+    @recipe['nutrition_info'].tr!('{}', '')
+    nutrition_arr = @recipe['nutrition_info'].split(',')
+
+    @recipe['ingredient_list'].tr!('{}', '')
+    ingredient_arr = @recipe['ingredient_list'].split('",')
+    ingredient_arr.each do |element|
+        element.tr!('"', '')
+        element.tr!('\\', '')
+    end 
+%>
+
+<div class="details-recipe-card">
+    <div class="details-nutrition-container">
+        <h1>Nutrition</h1>
+        <div class="details-nutrition-info">
+        <% nutrition_arr.each_with_index do |n, index| 
+            n_arr = n.split(':')
+        %>
+            <div>
+                <p><%= n_arr[0] %></p>
+                <% if index <= 0 %>
+                    <h3><%= n_arr[1] %> cal</h3>
+                <% else %>
+                    <h3><%= n_arr[1] %> g</h3>
+                <% end %>
+            </div>
+        <% end %>
+        </div>
+    </div> 
+</div>
+
+
+<%= %>
