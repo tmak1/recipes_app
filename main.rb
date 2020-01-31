@@ -134,9 +134,9 @@ sql += "VALUES ('#{params[:recipes_name]}', '#{params[:recipes_tag]}', '#{ing}',
 sql += "'#{params[:recipes_meal_type]}', '#{params[:recipes_cuisine]}', '{#{params[:recipes_image_url]}}',"
 sql += "#{session[:user_id]};"
 
-result = run_sql(sql)
+# result = run_sql(sql)
 
-# raise sql.inspect
+raise sql.inspect
 
 
 
