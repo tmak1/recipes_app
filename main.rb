@@ -1,9 +1,11 @@
 require 'sinatra'
-require 'sinatra/reloader'
-require 'pry'
 require 'bcrypt'
 require_relative 'db/shared'
 
+if development?
+  require 'sinatra/reloader'
+  require 'pry'
+end
 
 enable :sessions
 
