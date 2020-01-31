@@ -1,20 +1,9 @@
-SELECT * INTO  temp FROM recipes;
-
-ALTER TABLE temp DROP COLUMN image_url_list;
-ALTER TABLE temp DROP video_url_list;
-
-SELECT * FROM temp; 
-
-DROP TABLE temp;
-
-
-
-
+require 'bcrypt'
 
 
 INSERT INTO users (
-  name, 
-  email,
+  users_name, 
+  users_email,
   password_digest,
   avatar_image_url
 )
@@ -25,8 +14,8 @@ VALUES (
     '');
 
 INSERT INTO users (
-  name, 
-  email,
+  users_name, 
+  users_email,
   password_digest,
   avatar_image_url
 )
@@ -38,9 +27,9 @@ VALUES (
 );
 
 INSERT INTO users (
-  name,
-  type, 
-  email,
+  users_name,
+  users_type, 
+  users_email,
   password_digest,
   avatar_image_url
 )
@@ -54,7 +43,7 @@ VALUES (
 
 
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
 VALUES (
     'In a bowl, mix the tuna, mayonnaise, mustard, salt, and pepper. Set aside.',
     'Slice a cucumber into 4 sections. Use a melon baller to hollow out the center, not quite through to the bottom. Fill each cucumber with tuna mixture, and top with half of a cherry tomato.',
@@ -70,7 +59,7 @@ VALUES (
     1
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
 VALUES (
     'Preheat oven to 400˚F (200˚C).',
     'On a baking sheet, season salmon with garlic, olive oil, salt, pepper, and paprika.',
@@ -87,7 +76,7 @@ VALUES (
 );
 
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
 VALUES (
     'Preheat oven to 400°F (200°C).',
     'Add the asparagus onto a baking tray and coat with olive oil, salt, pepper, and garlic.',
@@ -103,7 +92,7 @@ VALUES (
     3
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
 VALUES (
     'Bring a large pot of salted water to a boil. Cook the pasta according to package instructions. Drain.',
     'Add the olive oil, garlic, and chile flakes to a large sauté pan. Turn the heat to medium-low and slowly heat up until the garlic is fragrant and lightly colored, about 3 minutes.',
@@ -119,7 +108,7 @@ VALUES (
     4
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
 VALUES (
     'In a large pot over medium heat, melt together 2 tablespoons of butter and 2 tablespoons of olive oil. Add the carrot, leek, onion, red bell pepper, fennel, green bell pepper, celery, and garlic. Season with salt and pepper. Stir and cook until the vegetables are softened, about 15 minutes.
 Scoop half of the matignon (sautéed minced vegetables) from the pan and set aside. Stir the tomato paste, basil, oregano, thyme, and cayenne into the remaining vegetables and cook until the tomato paste starts to brown, about 10 minutes.',
@@ -141,7 +130,7 @@ Serve with grilled sourdough bread and garnish with parsley.',
     5
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
 VALUES (
     'Make the sauce: In a large pot over medium-low heat, combine the olive oil and garlic and cook until the garlic begins to sizzle very gently. Add the red pepper flakes and cook, stirring, until the garlic just begins to turn light golden in color, about 3 minutes. Add the Savory spice blend and continue to cook, stirring, for 1 minute more.',
     'Add the tomato paste and cook, stirring, until the paste has softened and blended with the oil and garlic mixture, about 3 minutes.',
@@ -157,7 +146,7 @@ VALUES (
     6
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
 VALUES (
     'Heat the oil in a large saucepan over a medium heat.',
     'Fry the garlic and ginger paste for a couple of minutes.',
@@ -173,7 +162,7 @@ VALUES (
     7
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
 VALUES (
     'Make the pumpkin pudding: Place the pumpkin in a medium bowl, cover the bowl with plastic wrap, and microwave for 5 minutes, until the pumpkin starts to soften. Let cool.',
     'In a microwave-proof ramekin, combine the water and gelatin and mix well. Set aside. Microwave the gelatin mixture for 10 seconds, then mix well.',
@@ -189,7 +178,7 @@ VALUES (
     8
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
 VALUES (
     'Pour coffee into ice molds and freeze.',
     'Pour sweetened cream into ice molds and freeze.',
@@ -208,7 +197,7 @@ VALUES (
 
 
 INSERT INTO recipes (
-    name,
+    recipes_name,
     tag, 
     ingredient_list,
     servings,
@@ -218,7 +207,7 @@ INSERT INTO recipes (
     nutrition_info, 
     image_url_list, 
     video_url_list, 
-    user_id_created)
+    recipes_user_id_created)
 VALUES (
     'After School Stuffed Cucumbers',
     'fish',
@@ -253,7 +242,7 @@ VALUES (
 
 
 INSERT INTO recipes (
-    name,
+    recipes_name,
     tag,  
     ingredient_list,
     servings,
@@ -263,7 +252,7 @@ INSERT INTO recipes (
     nutrition_info, 
     image_url_list, 
     video_url_list, 
-    user_id_created)
+    recipes_user_id_created)
 VALUES (
     'Avocado Lime Salmon',
     'fish',
@@ -294,7 +283,7 @@ VALUES (
 
 
 INSERT INTO recipes (
-    name,
+    recipes_name,
     tag,  
     ingredient_list,
     servings,
@@ -304,7 +293,7 @@ INSERT INTO recipes (
     nutrition_info, 
     image_url_list, 
     video_url_list, 
-    user_id_created)
+    recipes_user_id_created)
 VALUES (
     'One-Pan Honey Garlic Salmon & Asparagus',
     'fish',
@@ -337,7 +326,7 @@ VALUES (
 
 
 INSERT INTO recipes (
-    name,
+    recipes_name,
     tag,  
     ingredient_list,
     servings,
@@ -347,7 +336,7 @@ INSERT INTO recipes (
     nutrition_info, 
     image_url_list, 
     video_url_list, 
-    user_id_created)
+    recipes_user_id_created)
 VALUES (
     'Tuna Linguine With Tomatoes, Olives & Capers',
     'fish',
@@ -383,7 +372,7 @@ VALUES (
 
 
 INSERT INTO recipes (
-    name, 
+    recipes_name, 
     tag,
     ingredient_list,
     servings,
@@ -393,7 +382,7 @@ INSERT INTO recipes (
     nutrition_info, 
     image_url_list, 
     video_url_list, 
-    user_id_created)
+    recipes_user_id_created)
 VALUES (
     'Cioppino',
     'fish',
@@ -448,7 +437,7 @@ VALUES (
 
 
 INSERT INTO recipes (
-    name, 
+    recipes_name, 
     tag,
     ingredient_list,
     servings,
@@ -458,7 +447,7 @@ INSERT INTO recipes (
     nutrition_info, 
     image_url_list, 
     video_url_list, 
-    user_id_created)
+    recipes_user_id_created)
 VALUES (
     'Savoury Spaghetti With Meatballs',
     'beef',
@@ -491,7 +480,7 @@ VALUES (
 
 
 INSERT INTO recipes (
-    name, 
+    recipes_name, 
     tag,
     ingredient_list,
     servings,
@@ -501,7 +490,7 @@ INSERT INTO recipes (
     nutrition_info, 
     image_url_list, 
     video_url_list, 
-    user_id_created)
+    recipes_user_id_created)
 VALUES (
     'Chili Chicken-stuffed Parathas',
     'chicken',
@@ -540,7 +529,7 @@ VALUES (
 
 
 INSERT INTO recipes (
-    name, 
+    recipes_name, 
     tag,
     ingredient_list,
     servings,
@@ -550,7 +539,7 @@ INSERT INTO recipes (
     nutrition_info, 
     image_url_list, 
     video_url_list, 
-    user_id_created)
+    recipes_user_id_created)
 VALUES (
     'Frozen Irish Coffee',
     'beverage',
@@ -579,7 +568,7 @@ VALUES (
 
 
 INSERT INTO recipes (
-    name, 
+    recipes_name, 
     tag,
     ingredient_list,
     servings,
@@ -589,7 +578,7 @@ INSERT INTO recipes (
     nutrition_info, 
     image_url_list, 
     video_url_list, 
-    user_id_created)
+    recipes_user_id_created)
 VALUES (
     'Giant Pumpkin Fondue Pudding',
     'dessert',

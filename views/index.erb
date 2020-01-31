@@ -2,22 +2,22 @@
     <% @all_recipes.each do |category, recipes| %>
         <div class="recipe-category">
             <div class="category-info">
-                <h1><%= category %></h1><a href="" class="more">show more</a>
+                <h1><%= category %></h1><a href="/recipes/<%= category %>/all" class="more">show more</a>
             </div>
             <div class="category-container">
             <% recipes.each do |recipe| %>
                     <div class="recipe-card">
-                    <a href="/recipes/<%=recipe['id']%>" class="remove-all-styles">
+                    <a href="/recipes/<%=recipe['recipes_id']%>" class="remove-all-styles">
                         <img class="recipe-image" src="<%= recipe['image_url_list'].tr!('{}', '') %>" alt="">
                     </a> 
                         <div class="recipe-info-card">
-                            <h3 class="recipe-name"><b><%= recipe['name'] %></b></h3>
+                            <h3 class="recipe-name"><b><%= recipe['recipes_name'] %></b></h3>
                             <div class="recipe-meta-info">
                                 <div>
                                     <p><i class="fas fa-clock"></i> <%= recipe['difficulty'] %> mins (<%= recipe['servings'] %> servings) </p>
                                 </div>
                                 <div class="recipe-actions">
-                                    <p><%= recipe['likes'] %></p>
+                                    <p><%= recipe['reciipes_votes'] %></p>
                                     <a href="" class="remove-all-styles" id="like-btn"><i class="fas fa-thumbs-up"></i></a>
                                     <a href="" class="remove-all-styles" id="save-btn"><i class="far fa-heart"></i></a>
                                 </div>     

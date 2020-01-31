@@ -1,0 +1,44 @@
+<div class="users-profile-main">
+    <div class="users-profile-info">
+        <div class="users-image-card">
+            <% if @user[0]['avatar_image_url'] == ''%>
+                <img src="/assets/images/avatar_generic.png" alt="">
+            <% else %>
+                <img src="@user[0]['avatar_image_url'] == ''%>" alt="">
+            <% end %>
+        </div>
+        <div class="user-details-card">
+            <div class="users-info">
+                <h1><%= @user[0]['users_name'] %></h1>
+                <h2><%= @user[0]['users_email'] %></h2>
+            </div>
+            <div class="users-meta-info">
+                <h3>Recipes Created: <%= @user.count %></h3>
+                <h3>Total Upvotes: <%= @user[0]['users_votes'] %></h3>
+                <h3>Total Posts: </h3>
+                <p>Joined <%= @user[0]['users_created_at'].split(' ')[0] %></p>
+            </div>
+        </div>
+    </div>  
+    <div class="users-profile-items">
+        </a>
+        <h2 class="search-result-count light-text-h3"><h1><a href="/user/<%= session[:user_id] %>/recipes/create" class="remove-all-styles">Create more <i class="fas fa-plus"></i></a></h1>Recipes Created: <%= @user.count %></h2>
+        <div class="recipe-category">
+            <div class="user-recipes-category-container">
+            <% @user.each do |user_recipe| %>
+                <div class="recipe-card">
+                <a href="/recipes/<%= user_recipe['recipes_id']%>" class="remove-all-styles">
+                    <img class="recipe-image" src="<%= user_recipe['image_url_list'].tr!('{}', '') %>" alt="">
+                </a> 
+                    <div class="recipe-info-card">
+                        <h3 class="recipe-name"><b><%= user_recipe['recipes_name'] %></b></h3>
+                        <div class="user-recipe-meta-info">
+                            <p><i class="fas fa-clock"></i> <%= user_recipe['difficulty'] %> mins (<%= user_recipe['servings'] %> servings) </p>
+                        </div>
+                    </div>
+                </div>           
+            <% end %>
+            </div>
+        </div>   
+    </div>
+</div>

@@ -9,9 +9,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="main">
+  <nav>
+    <ul>
+      <div class="left">
+        <li><a href="/">Home</a></li>
+        <% if !logged_in? %>
+          <li><a href="/login">My List</a></li>
+        <% else %>
+          <li><a href="/users/profile/<%= current_user['users_id']%>">My List</a></li>
+        <%end%>
+        
+        <li><a href="/about">About us</a></li>
+      </div>
+      <div class="right">
+        <li style="margin: 0; padding: 0;">
+          <form action="/search" method="get" id="search-form">
+            <input type="text" name="query" id="search_form">
+          </form> 
+        </li>
+        <li><input type="submit" form="search-form" class="form-btn" value="Search"/></li> 
+        <li id="user-menu">
+          <% if !logged_in? %>
+            <a href="/login">Login</a>
+          <% else %>
+          <input id="check01" type="checkbox" name="menu" />
+          <label for="check01" class="form-btn"><%= current_user['users_name']%></label>
+          <ul class="submenu">
+            <li><a href="/users/profile/<%= current_user['users_id']%>">Profile</a></li>  
+            <li style="padding-left:20px;">
+              <form action="/logout" method="post">
+                <input type="hidden" name="_method" id="logout-form" value="delete">
+                <button class="form-btn">Logout</button>
+              </form>
+            </li>
+          </ul>
+          <%end%>
+        </li>
+      </div>
+    </ul>
+  </nav>
   <%= yield %>
-</div>
-
 </body>
 </html>

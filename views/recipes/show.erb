@@ -1,9 +1,3 @@
-<h1><%= @recipe['name'] %></h1>
-<h1><%= @recipe['likes'] %></h1>
-<h1><%= @recipe['servings'] %></h1>
-<h1><%= @recipe['difficulty'] %></h1>
-<h1><%= @recipe['meal_type'] %></h1>
-<h1><%= @recipe['cuisine'] %></h1>
 <% 
     @recipe['nutrition_info'].tr!('{}', '')
     nutrition_arr = @recipe['nutrition_info'].split(',')
@@ -15,26 +9,70 @@
         element.tr!('\\', '')
     end 
 %>
+<div class="details-recipe-main">
+    <div class="details-recipe-image">
+        <img class="details-recipe-image" src="<%= @recipe['image_url_list'].tr!('{}', '') %>" alt="">
+        <div class="black"></div>
+    </div>
+    <div class="details-recipe-name-card">
+        <h1><%= @recipe['recipes_name'] %> </h1>
+        <h3>By <a href="/users/<%= @recipe['users_id'] %>/recipes" class="details-remove-all-styles"><%= @recipe['users_name'] %></a> (<%= @recipe['users_created_at'].split(' ')[0] %>) </h3>
+    </div>
+    <div class="details-recipe-card">
+        <div class="details-nutrition-container">
+            <div class="details-recipe-meta-info">
+                <div>
+                    <p><i class="fas fa-clock"></i> <%= @recipe['difficulty'] %> mins</p>
+                </div>
+                <div class="recipe-actions">
+                    <p><%= @recipe['recipes_votes'] %></p>
+                    <a href="" class="remove-all-styles" id="like-btn"><i class="fas fa-thumbs-up"></i></a>
+                    <a href="" class="remove-all-styles" id="save-btn"><i class="far fa-heart"></i></a>
+                </div>  
+            </div>
+            <div class="details-nutrition-info">
+            <% nutrition_arr.each_with_index do |n, index| 
+                n_arr = n.split(':')
+            %>
+                <div>
+                    <p class="light-text-p"><%= n_arr[0] %></p>
+                    <% if index <= 0 %>
+                        <h3><%= n_arr[1] %> cal</h3>
+                    <% else %>
+                        <h3><%= n_arr[1] %> g</h3>
+                    <% end %>
+                </div>
+            <% end %>
+            </div>
+        </div> 
 
-<div class="details-recipe-card">
-    <div class="details-nutrition-container">
-        <h1>Nutrition</h1>
-        <div class="details-nutrition-info">
-        <% nutrition_arr.each_with_index do |n, index| 
-            n_arr = n.split(':')
-        %>
-            <div>
-                <p><%= n_arr[0] %></p>
-                <% if index <= 0 %>
-                    <h3><%= n_arr[1] %> cal</h3>
-                <% else %>
-                    <h3><%= n_arr[1] %> g</h3>
+        <div class="details-secondary-container">
+            <div class="details-ingredients-container">
+                <p class="light-text-p">ingredients  (<%= @recipe['servings'] %> servings) </p>
+                <% ingredient_arr.each do |ingred|
+                    ingred_arr = ingred.split(':') 
+                %>
+                <div class="ingredient">
+                    <p><%= ingred_arr[0] %>:</p>
+                    <p><%= ingred_arr[1] %></p>
+                </div>
                 <% end %>
             </div>
-        <% end %>
-        </div>
-    </div> 
+            <div class="details-preparation-container">
+                <p class="light-text-p">method</p>
+                <% 11.times do |t|
+                    t+= 1
+                    ind = "step" + t.to_s
+                    if @recipe[ind] != ''
+                        str = "Step " + t.to_s + ":" %>
+                        <div class="steps-container">
+                            <h3 class="light-text-h3"><%= str %></h3>
+                            <p class="steps-text"><%= @recipe[ind] %></p>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div> 
+    </div>
 </div>
 
-
-<%= %>

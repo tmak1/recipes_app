@@ -1,0 +1,27 @@
+<div class="recipe-main">
+    <h2 class="search-result-count light-text-h3"><%= @recipes.count %> results found</h2>
+    <div class="recipe-category">
+        <div class="category-container">
+        <% @recipes.each do |recipe| %>
+            <div class="recipe-card">
+            <a href="/recipes/<%=recipe['recipes_id']%>" class="remove-all-styles">
+                <img class="recipe-image" src="<%= recipe['image_url_list'].tr!('{}', '') %>" alt="">
+            </a> 
+                <div class="recipe-info-card">
+                    <h3 class="recipe-name"><b><%= recipe['recipes_name'] %></b></h3>
+                    <div class="recipe-meta-info">
+                        <div>
+                            <p><i class="fas fa-clock"></i> <%= recipe['difficulty'] %> mins (<%= recipe['servings'] %> servings) </p>
+                        </div>
+                        <div class="recipe-actions">
+                            <p><%= recipe['reciipes_votes'] %></p>
+                            <a href="" class="remove-all-styles" id="like-btn"><i class="fas fa-thumbs-up"></i></a>
+                            <a href="" class="remove-all-styles" id="save-btn"><i class="far fa-heart"></i></a>
+                        </div>     
+                    </div>
+                </div>
+            </div>           
+        <% end %>
+        </div>
+    </div>
+</div>
