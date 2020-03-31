@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Recipes_app</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='/stylesheets/all.min.css'>
   <link rel='stylesheet' href='/stylesheets/fontawesome.min.css'>
   <link rel='stylesheet' href='/stylesheets/main.css'>
@@ -16,7 +17,7 @@
         <% if !logged_in? %>
           <li><a href="/login">My List</a></li>
         <% else %>
-          <li><a href="/users/profile/<%= current_user['users_id']%>">My List</a></li>
+          <li><a href="/users/profile/<%= current_user['user_id']%>">My List</a></li>
         <%end%>
         
         <li><a href="/about">About us</a></li>
@@ -33,9 +34,9 @@
             <a href="/login">Login</a>
           <% else %>
           <input id="check01" type="checkbox" name="menu" />
-          <label for="check01" class="form-btn"><%= current_user['users_name']%></label>
+          <label for="check01" class="form-btn"><%= current_user['user_name']%></label>
           <ul class="submenu">
-            <li><a href="/users/profile/<%= current_user['users_id']%>">Profile</a></li>  
+            <li><a href="/users/profile/<%= current_user['user_id']%>">Profile</a></li>  
             <li style="padding-left:20px;">
               <form action="/logout" method="post">
                 <input type="hidden" name="_method" id="logout-form" value="delete">
@@ -49,5 +50,7 @@
     </ul>
   </nav>
   <%= yield %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <script src="/javascripts/app.js"></script>
 </body>
 </html>

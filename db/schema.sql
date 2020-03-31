@@ -1,27 +1,35 @@
-CREATE DATABASE recipes_app;
+CREATE DATABASE recipeapp;
 
-\c recipes_app;
+\c recipesapp;
+
+CREATE TABLE users (
+  user_id SERIAL PRIMARY KEY,
+  user_type VARCHAR(50) DEFAULT 'user', 
+  user_name VARCHAR(500) NOT NULL,
+  user_email VARCHAR(300) NOT NULL UNIQUE,
+  password_digest VARCHAR(700) NOT NULL,
+  user_vote INTEGER NOT NULL DEFAULT 0,
+  avatar_image_url TEXT, 
+  user_recipe_saved_id INTEGER[],
+  user_created_at timestamptz DEFAULT now()
+);
 
 CREATE TABLE recipes (
-    recipes_id SERIAL PRIMARY KEY,
-    recipes_name VARCHAR(500) NOT NULL,
+    recipe_id SERIAL PRIMARY KEY,
+    recipe_name VARCHAR(500) NOT NULL,
     tag TEXT,
-    ingredient_list TEXT[] NOT NULL,
-    servings INTEGER NOT NULL,
+    serving INTEGER NOT NULL,
     difficulty INTEGER NOT NULL,
     meal_type VARCHAR(500) NOT NULL,
     cuisine VARCHAR(500) NOT NULL,
-    recipes_votes INTEGER NOT NULL DEFAULT 0,
-    nutrition_info TEXT[],
-    image_url_list TEXT[] NOT NULL,
-    video_url_list TEXT,
-    recipes_user_id_created INTEGER NOT NULL,
-    recipes_created_at timestamptz DEFAULT now()
+    recipe_vote INTEGER NOT NULL DEFAULT 0,
+    recipe_user_created_id INTEGER NOT NULL,
+    recipe_created_at timestamptz DEFAULT now()
 );
 
 
 CREATE TABLE steps (
-  steps_id SERIAL PRIMARY KEY,
+  step_id SERIAL PRIMARY KEY,
   step1 VARCHAR(1000) NOT NULL,
   step2 VARCHAR(1000),
   step3 VARCHAR(1000),
@@ -33,30 +41,50 @@ CREATE TABLE steps (
   step9 VARCHAR(1000),
   step10 VARCHAR(1000),
   step11 VARCHAR(1000),
-  steps_recipe_id INTEGER NOT NULL,
-  steps_created_at timestamptz DEFAULT now()
+  step_recipe_id INTEGER NOT NULL,
+  step_created_at timestamptz DEFAULT now()
 );
 
-CREATE TABLE users (
-  users_id SERIAL PRIMARY KEY,
-  users_type VARCHAR(50) DEFAULT 'user', 
-  users_name VARCHAR(500) NOT NULL,
-  users_email VARCHAR(300) NOT NULL UNIQUE,
-  password_digest VARCHAR(700) NOT NULL,
-  users_recipe_saved_id INTEGER[],
-  users_votes INTEGER NOT NULL DEFAULT 0,
-  avatar_image_url TEXT, 
-  users_created_at timestamptz DEFAULT now()
-);
 
 CREATE TABLE posts (
-  posts_id SERIAL PRIMARY KEY,
-  posts_recipe_id INTEGER NOT NULL,
-  posts_user_id INTEGER NOT NULL,
-  posts_votes INTEGER NOT NULL DEFAULT 0,
-  posts_image_url TEXT,
+  post_id SERIAL PRIMARY KEY,
+  post_text TEXT NOT NULl,
+  post_recipe_id INTEGER NOT NULL,
+  post_user_id INTEGER NOT NULL,
+  post_vote INTEGER NOT NULL DEFAULT 0,
+  post_image_url TEXT,
   is_deleted INTEGER DEFAULT 0, 
-  posts_created_at timestamptz DEFAULT now()
+  post_created_at timestamptz DEFAULT now()
 );
 
+CREATE TABLE recipe_media (
+    media_id SERIAL PRIMARY KEY,
+    media_type VARCHAR(50),
+    media_url TEXT,
+    media_recipe_id INTEGER NOT NULL,
+    media_created_at timestamptz DEFAULT now()
+);
+
+
+CREATE TABLE nutrition_info (
+    nutrition_id SERIAL PRIMARY KEY,
+    calorie NUMERIC, 
+    fat NUMERIC,
+    carbs NUMERIC,
+    fiber NUMERIC,
+    sugar NUMERIC,
+    protein NUMERIC,
+    nutrition_recipe_id INTEGER NOT NULL,
+    nutrition_created_at timestamptz DEFAULT now()
+);
+
+CREATE TABLE ingredients (
+    ingredient_id SERIAL PRIMARY KEY,
+    ingredient_desc VARCHAR(200),
+    ingredient_amount VARCHAR(50),
+    ingredient_metric VARCHAR(50),
+    ingredient_amount_other VARCHAR(50),
+    ingredient_recipe_id INTEGER NOT NULL,
+    ingredient_created_at timestamptz DEFAULT now()
+);
 

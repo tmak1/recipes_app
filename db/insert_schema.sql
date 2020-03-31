@@ -1,49 +1,53 @@
-require 'bcrypt'
-
-
 INSERT INTO users (
-  users_name, 
-  users_email,
+  user_name, 
+  user_email,
   password_digest,
-  avatar_image_url
+  avatar_image_url,
+  user_recipe_saved_id
 )
 VALUES (
     'John',
     'dt1@ga.co.uk',
-    '1',
-    '');
+    '$2y$12$a.UDfMJQrsTSDrcMezJj8.gafYrdH2plCDyCDIlhgmoDVGYoOsdFK',
+    '',
+    '{"1","2"}'
+);
 
 INSERT INTO users (
-  users_name, 
-  users_email,
+  user_name, 
+  user_email,
   password_digest,
-  avatar_image_url
+  avatar_image_url,
+  user_recipe_saved_id
 )
 VALUES (
     'Jane',
     'dt2@ga.co.uk',
-    '2',
-    ''
+    '$2y$12$N4QNzX1I1QeaO3iXaD7ir.I5WlwYsr65pkm9mIJz2vatL8qVMgOai',
+    '',
+    '{"3","4"}'
 );
 
 INSERT INTO users (
-  users_name,
-  users_type, 
-  users_email,
+  user_name,
+  user_type, 
+  user_email,
   password_digest,
-  avatar_image_url
+  avatar_image_url,
+  user_recipe_saved_id
 )
 VALUES (
     'DT',
     'admin',
     'admin@ga.co.uk',
-    '3',
-    ''
+    '$2y$12$JU0p7hNZWmk1CLMMIcUdeefWz9u1J46EjljJVJGXNq/ftg2BvZMfq',
+    '',
+    '{"5","6"}'
 );
 
 
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, step_recipe_id)
 VALUES (
     'In a bowl, mix the tuna, mayonnaise, mustard, salt, and pepper. Set aside.',
     'Slice a cucumber into 4 sections. Use a melon baller to hollow out the center, not quite through to the bottom. Fill each cucumber with tuna mixture, and top with half of a cherry tomato.',
@@ -59,7 +63,7 @@ VALUES (
     1
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, step_recipe_id)
 VALUES (
     'Preheat oven to 400˚F (200˚C).',
     'On a baking sheet, season salmon with garlic, olive oil, salt, pepper, and paprika.',
@@ -76,7 +80,7 @@ VALUES (
 );
 
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, step_recipe_id)
 VALUES (
     'Preheat oven to 400°F (200°C).',
     'Add the asparagus onto a baking tray and coat with olive oil, salt, pepper, and garlic.',
@@ -92,7 +96,7 @@ VALUES (
     3
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, step_recipe_id)
 VALUES (
     'Bring a large pot of salted water to a boil. Cook the pasta according to package instructions. Drain.',
     'Add the olive oil, garlic, and chile flakes to a large sauté pan. Turn the heat to medium-low and slowly heat up until the garlic is fragrant and lightly colored, about 3 minutes.',
@@ -108,7 +112,7 @@ VALUES (
     4
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, step_recipe_id)
 VALUES (
     'In a large pot over medium heat, melt together 2 tablespoons of butter and 2 tablespoons of olive oil. Add the carrot, leek, onion, red bell pepper, fennel, green bell pepper, celery, and garlic. Season with salt and pepper. Stir and cook until the vegetables are softened, about 15 minutes.
 Scoop half of the matignon (sautéed minced vegetables) from the pan and set aside. Stir the tomato paste, basil, oregano, thyme, and cayenne into the remaining vegetables and cook until the tomato paste starts to brown, about 10 minutes.',
@@ -130,7 +134,7 @@ Serve with grilled sourdough bread and garnish with parsley.',
     5
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, step_recipe_id)
 VALUES (
     'Make the sauce: In a large pot over medium-low heat, combine the olive oil and garlic and cook until the garlic begins to sizzle very gently. Add the red pepper flakes and cook, stirring, until the garlic just begins to turn light golden in color, about 3 minutes. Add the Savory spice blend and continue to cook, stirring, for 1 minute more.',
     'Add the tomato paste and cook, stirring, until the paste has softened and blended with the oil and garlic mixture, about 3 minutes.',
@@ -146,7 +150,7 @@ VALUES (
     6
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, step_recipe_id)
 VALUES (
     'Heat the oil in a large saucepan over a medium heat.',
     'Fry the garlic and ginger paste for a couple of minutes.',
@@ -162,7 +166,7 @@ VALUES (
     7
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, step_recipe_id)
 VALUES (
     'Make the pumpkin pudding: Place the pumpkin in a medium bowl, cover the bowl with plastic wrap, and microwave for 5 minutes, until the pumpkin starts to soften. Let cool.',
     'In a microwave-proof ramekin, combine the water and gelatin and mix well. Set aside. Microwave the gelatin mixture for 10 seconds, then mix well.',
@@ -178,7 +182,7 @@ VALUES (
     8
 );
 
-INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, steps_recipe_id)
+INSERT INTO steps (step1, step2, step3, step4, step5, step6, step7, step8, step9, step10, step11, step_recipe_id)
 VALUES (
     'Pour coffee into ice molds and freeze.',
     'Pour sweetened cream into ice molds and freeze.',
@@ -197,413 +201,443 @@ VALUES (
 
 
 INSERT INTO recipes (
-    recipes_name,
-    tag, 
-    ingredient_list,
-    servings,
+    recipe_name,
+    tag,
+    serving,
     difficulty, 
     meal_type, 
     cuisine, 
-    nutrition_info, 
-    image_url_list, 
-    video_url_list, 
-    recipes_user_id_created)
+    recipe_user_created_id)
 VALUES (
     'After School Stuffed Cucumbers',
     'fish',
-    '{
-        "tuna:1 can", 
-        "mayonnaise:1 tablespoon", 
-        "mustard:1 tablespoon", 
-        "salt:to taste", 
-        "pepper:to taste",
-        "cucumber:1",
-        "cherry tomatoes:2"
-    }',
     2,
     25,
     'snacks',
     'american',
-    '{
-        "Calories:152", 
-        "Fat:9",
-        "Carbs:1",
-        "Fiber:0",
-        "Sugar:0",
-        "Protein:15"
-     }',
-     '{"https://powerhungry.com/wp-content/uploads/2018/12/sesame-sriracha-stuffed-cucumber-cups-7.png"}',
-     'https://www.youtube.com/watch?v=Ct5eWqYPlxE',
-     1
+    1
 );
-    
+
+INSERT INTO nutrition_info (
+    calorie, 
+    fat,
+    carbs,
+    fiber,
+    sugar,
+    protein,
+    nutrition_recipe_id)
+VALUES (
+    152,
+    9,
+    1,
+    0,
+    0,
+    15,
+    1
+);
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('image', 'https://powerhungry.com/wp-content/uploads/2018/12/sesame-sriracha-stuffed-cucumber-cups-7.png', 1);
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('video', 'https://www.youtube.com/watch?v=Ct5eWqYPlxE', 1);
 
 
 
 
 INSERT INTO recipes (
-    recipes_name,
-    tag,  
-    ingredient_list,
-    servings,
+    recipe_name,
+    tag, 
+    serving,
     difficulty, 
     meal_type, 
     cuisine, 
-    nutrition_info, 
-    image_url_list, 
-    video_url_list, 
-    recipes_user_id_created)
+    recipe_user_created_id)
 VALUES (
     'Avocado Lime Salmon',
     'fish',
-    '{
-        "skinless salmon:170 g", 
-        "clove garlic, minced:1", 
-        "olive oil:to taste", 
-        "salt:to taste", 
-        "pepper:to taste",
-        "paprika:0.5 teaspoon"
-    }',
     1,
     20,
     'dinner',
     'american',
-    '{
-        "Calories:611", 
-        "Fat:49",
-        "Carbs:5",
-        "Fiber:1",
-        "Sugar:1",
-        "Protein:34"
-     }',
-     '{"https://www.closetcooking.com/wp-content/uploads/2015/04/ChipotleLimeSalmonwithAvocadoSalsa8004286.jpg"}',
-     'https://www.youtube.com/watch?v=y89swSBrBj8',
-     2
+    2
 );
 
 
+INSERT INTO nutrition_info (
+    calorie, 
+    fat,
+    carbs,
+    fiber,
+    sugar,
+    protein,
+    nutrition_recipe_id
+)
+VALUES (
+    611,
+    49,
+    5,
+    1,
+    1,
+    34,
+    2
+);
+
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('image', 'https://www.closetcooking.com/wp-content/uploads/2015/04/ChipotleLimeSalmonwithAvocadoSalsa8004286.jpg', 2);
+
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('video', 'https://www.youtube.com/watch?v=Ct5eWqYPlxE', 2);
+
+
 INSERT INTO recipes (
-    recipes_name,
-    tag,  
-    ingredient_list,
-    servings,
+    recipe_name,
+    tag, 
+    serving,
     difficulty, 
     meal_type, 
     cuisine, 
-    nutrition_info, 
-    image_url_list, 
-    video_url_list, 
-    recipes_user_id_created)
+    recipe_user_created_id)
 VALUES (
     'One-Pan Honey Garlic Salmon & Asparagus',
     'fish',
-    '{
-        "asparagus trimmed:170 g", 
-        "clove garlic, minced:7", 
-        "olive oil:3 tablespoons", 
-        "salt:to taste", 
-        "pepper:to taste",
-        "honey:4 teaspoon",
-        "salmon:4 fillets"
-    }',
     4,
     27,
     'lunch',
     'american',
-    '{
-        "Calories:196", 
-        "Fat:12",
-        "Carbs:11",
-        "Fiber:1",
-        "Sugar:8",
-        "Protein:10"
-     }',
-     '{"https://img.buzzfeed.com/thumbnailer-prod-us-east-1/866baaa671874497bd0443dce083da78/BFV30877_WeekdayMealPrepFor4FB1080x1080.jpg"}',
-     'https://www.youtube.com/watch?v=w3yBEaCyxE8',
-     1
+    1
 );
+
+
+INSERT INTO ingredients (ingredient_desc, ingredient_amount, ingredient_metric, ingredient_amount_other, ingredient_recipe_id) 
+VALUES ('salmon fillets', '4', '', '' , 3);
+
+INSERT INTO nutrition_info (
+    calorie, 
+    fat,
+    carbs,
+    fiber,
+    sugar,
+    protein,
+    nutrition_recipe_id
+)
+VALUES (
+    196,
+    12,
+    11,
+    1,
+    8,
+    10,
+    3
+);
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('image', 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/866baaa671874497bd0443dce083da78/BFV30877_WeekdayMealPrepFor4FB1080x1080.jpg', 3);
+
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('video', 'https://www.youtube.com/watch?v=w3yBEaCyxE8', 3);
 
 
 
 INSERT INTO recipes (
-    recipes_name,
-    tag,  
-    ingredient_list,
-    servings,
+    recipe_name,
+    tag, 
+    serving,
     difficulty, 
     meal_type, 
     cuisine, 
-    nutrition_info, 
-    image_url_list, 
-    video_url_list, 
-    recipes_user_id_created)
+    recipe_user_created_id)
 VALUES (
     'Tuna Linguine With Tomatoes, Olives & Capers',
     'fish',
-    '{
-        "tuna:1 can (140 g)", 
-        "clove garlic, thinly sliced:2", 
-        "olive oil:2 tablespoons", 
-        "salt:to taste", 
-        "linguine:225 g",
-        "caper:1 tablespoon",
-        "dried oeregano:2 teaspoons",
-        "tomato paste:2 tablespoons",
-        "red chilli flakes:0.5 teaspoon",
-        "diced tomato:14 (395 g)"
-    }',
     4,
     22,
     'dinner',
     'italian',
-    '{
-        "Calories:378", 
-        "Fat:11",
-        "Carbs:52",
-        "Fiber:4",
-        "Sugar:6",
-        "Protein:17"
-     }',
-     '{"https://www.closetcooking.com/wp-content/uploads/2010/12/TunaandCaperTomatoPasta500.jpg"}',
-     'https://www.youtube.com/watch?v=Pyf9ZmjTndo',
      1
 );
 
 
+INSERT INTO nutrition_info (
+    calorie, 
+    fat,
+    carbs,
+    fiber,
+    sugar,
+    protein,
+    nutrition_recipe_id
+)
+VALUES (
+    378,
+    11,
+    52,
+    4,
+    6,
+    17,
+    4
+);
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('image', 'https://static01.nyt.com/images/2010/12/07/science/10recipehealth/10recipehealth-articleLarge-v2.jpg', 4);
+
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('video', 'https://www.youtube.com/watch?v=Pyf9ZmjTndo', 4);
+
+
 
 INSERT INTO recipes (
-    recipes_name, 
+    recipe_name, 
     tag,
-    ingredient_list,
-    servings,
+    serving,
     difficulty, 
     meal_type, 
     cuisine, 
-    nutrition_info, 
-    image_url_list, 
-    video_url_list, 
-    recipes_user_id_created)
+    recipe_user_created_id)
 VALUES (
     'Cioppino',
     'fish',
-    '{
-        "unsalted butter, divided:4 tablespoons", 
-        "extra virgin olive oil:1 cup (240 mL)", 
-        "large carrots, peeled, trimmed, and minced:2", 
-        "leek, white part only, trimmed, cleaned, and minced:1", 
-        "large yellow onion, minced:1", 
-        "red bell pepper, cored, seeded, and minced:1", 
-        "small fennel bulb, trimmed, and minced:1", 
-        "green bell pepper, cored, seeded, and minced:1", 
-        "celeries, minced:2", 
-        "cloves garlic, finely chopped:4", 
-        "cloves garlic, crushed:3", 
-        "salt:to taste", 
-        "freshly cracked pepper:to taste", 
-        "tomato paste:170 g", 
-        "dried basil:1 tablespoon", 
-        "dried oregano:1 tablespoon", 
-        "dried thyme:1 tablespoon", 
-        "dried cayenne:1 tablespoon", 
-        "dry white wine divided:2 cups (480 mL)", 
-        "crushed italian tomato:2 cans (425 g)",
-        "bay leaves:3",
-        "sea scallop:225 g",
-        "shrimp peeled and deveined:225 g",
-        "squid sliced:225 g",
-        "halibut fillet, cut into large pieces:225 g",
-        "manila clam, scrubbed:225 g",
-        "mussel, scrubbed:225 g",
-        "sourdough bread, grilled:to taste",
-        "bunch fresh parsley, chopped, for garnish:0.5"
-    }',
     6,
     44,
     'dinner',
     'italian',
-    '{
-        "Calories:813", 
-        "Fat:52",
-        "Carbs:37",
-        "Fiber:4",
-        "Sugar:7",
-        "Protein:44"
-     }',
-     '{"https://food.fnr.sndimg.com/content/dam/images/food/fullset/2009/3/16/1/EI0709_32499_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382543843419.jpeg"}',
-     'https://www.youtube.com/results?search_query=Cioppino',
-     1
+    1
 );
+
+
+INSERT INTO nutrition_info (
+    calorie, 
+    fat,
+    carbs,
+    fiber,
+    sugar,
+    protein,
+    nutrition_recipe_id
+)
+VALUES (
+    813,
+    52,
+    37,
+    4,
+    7,
+    44,
+    5
+);
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('image', 'https://assets.epicurious.com/photos/54b87c137cbba01c0db7ff8d/6:4/w_620%2Ch_413/51248830_cioppino_1x1.jpg', 5);
+ 
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('video', 'https://www.youtube.com/watch?v=hWvwvKfjaJw', 5);
 
 
 
 INSERT INTO recipes (
-    recipes_name, 
+    recipe_name, 
     tag,
-    ingredient_list,
-    servings,
+    serving,
     difficulty, 
     meal_type, 
     cuisine, 
-    nutrition_info, 
-    image_url_list, 
-    video_url_list, 
-    recipes_user_id_created)
+    recipe_user_created_id)
 VALUES (
     'Savoury Spaghetti With Meatballs',
     'beef',
-    '{
-        "olive oil:2 tablespoons", 
-        "cloves, garlic:5", 
-        "red pepper flakes:0.5 teaspoon", 
-        "McCormick® Savory Spice Blend:1 tablespoon", 
-        "Tomato paste:3 tablespoons", 
-        "Canned whole peeled tomato:1500 g", 
-        "kosher salt:to taste"
-    }',
     8,
     50,
     'dinner',
     'italian',
-    '{
-        "Calories:691", 
-        "Fat:36",
-        "Carbs:52",
-        "Fiber:5",
-        "Sugar:8",
-        "Protein:41"
-     }',
-     '{"https://www.onceuponachef.com/images/2019/09/Easy-Spaghetti-and-Meatball-Recipe-760x1057.jpg"}',
-     'https://www.youtube.com/watch?v=ItURXZjQ5kg',
-     2
+    2
 );
+
+
+INSERT INTO nutrition_info (
+    calorie, 
+    fat,
+    carbs,
+    fiber,
+    sugar,
+    protein,
+    nutrition_recipe_id
+)
+VALUES (
+    691,
+    36,
+    52,
+    5,
+    8,
+    41,
+    6
+);
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('image' ,'https://www.onceuponachef.com/images/2019/09/Easy-Spaghetti-and-Meatball-Recipe-760x1057.jpg', 6);
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('video' ,'https://www.youtube.com/watch?v=ItURXZjQ5kg', 6);
+
 
 
 
 INSERT INTO recipes (
-    recipes_name, 
+    recipe_name, 
     tag,
-    ingredient_list,
-    servings,
+    serving,
     difficulty, 
     meal_type, 
     cuisine, 
-    nutrition_info, 
-    image_url_list, 
-    video_url_list, 
-    recipes_user_id_created)
+    recipe_user_created_id)
 VALUES (
     'Chili Chicken-stuffed Parathas',
     'chicken',
-    '{
-        "olive oil:1 tablespoon", 
-        "garlic ginger paste:1 tablespoon", 
-        "red chilli, diced:1", 
-        "onion, diced:1", 
-        "tomato, chopped:1", 
-        "chilli powder:1 teaspoon", 
-        "tumeric:1 teaspoon", 
-        "garam masala:1 tablespoons", 
-        "salt:1 teaspoon", 
-        "pepper:1 teaspoon", 
-        "chicken, cooked and shredded:3.75 cups (400 g)", 
-        "bunch fresh coriander, small bunch, chopped:1", 
-        "parathas, defrosted:10"
-
-    }',
     5,
     25,
     'lunch',
     'indian',
-    '{
-        "Calories:343", 
-        "Fat:8",
-        "Carbs:30",
-        "Fiber:1",
-        "Sugar:0",
-        "Protein:35"
-     }',
-     '{"https://i.pinimg.com/236x/49/ee/b8/49eeb8a7fad779d71cd43b59d1f9baf6.jpg"}',
-     'https://www.youtube.com/watch?v=ecq85gG-vWo',
-     2
+    2
 );
 
 
+INSERT INTO nutrition_info (
+    calorie, 
+    fat,
+    carbs,
+    fiber,
+    sugar,
+    protein,
+    nutrition_recipe_id
+)
+VALUES (
+    343,
+    8,
+    30,
+    1,
+    0,
+    35,
+    7
+);
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('image' ,'https://i.pinimg.com/236x/49/ee/b8/49eeb8a7fad779d71cd43b59d1f9baf6.jpg', 7);
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('video', 'https://www.youtube.com/watch?v=ecq85gG-vWo', 7);
+
+
+
 INSERT INTO recipes (
-    recipes_name, 
+    recipe_name, 
     tag,
-    ingredient_list,
-    servings,
+    serving,
     difficulty, 
     meal_type, 
     cuisine, 
-    nutrition_info, 
-    image_url_list, 
-    video_url_list, 
-    recipes_user_id_created)
+    recipe_user_created_id)
 VALUES (
     'Frozen Irish Coffee',
     'beverage',
-    '{
-        "strong black coffee, cooled:2 cups (470 g)", 
-        "sweetened cream:1.5 cups (355 mL)", 
-        "irish whiskey:90 mL", 
-        "chocolate bar, melted: 1"
-    }',
     1,
     20,
     'beverages',
     'japanese',
-    '{
-        "Calories:789", 
-        "Fat:66",
-        "Carbs:33",
-        "Fiber:1",
-        "Sugar:30",
-        "Protein:7"
-     }',
-     '{"https://img.buzzfeed.com/buzzfeed-static/static/2017-03/16/17/asset/buzzfeed-prod-fastlane-01/sub-buzz-24374-1489699600-1.jpg?downsize=700%3A%2A&output-quality=auto&output-format=auto"}',
-     'https://www.youtube.com/watch?v=Y5rx-pwa5ZM',
-     2
+    2
 );
 
 
+INSERT INTO nutrition_info (
+    calorie, 
+    fat,
+    carbs,
+    fiber,
+    sugar,
+    protein,
+    nutrition_recipe_id
+)
+VALUES (
+    789,
+    66,
+    33,
+    1,
+    30,
+    15,
+    8
+);
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('image', 'https://img.buzzfeed.com/buzzfeed-static/static/2017-03/16/17/asset/buzzfeed-prod-fastlane-01/sub-buzz-24374-1489699600-1.jpg?downsize=700%3A%2A&output-quality=auto&output-format=auto', 8);
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('video', 'https://www.youtube.com/watch?v=Y5rx-pwa5ZM', 8);
+
+
 INSERT INTO recipes (
-    recipes_name, 
+    recipe_name, 
     tag,
-    ingredient_list,
-    servings,
+    serving,
     difficulty, 
     meal_type, 
     cuisine, 
-    nutrition_info, 
-    image_url_list, 
-    video_url_list, 
-    recipes_user_id_created)
+    recipe_user_created_id)
 VALUES (
     'Giant Pumpkin Fondue Pudding',
     'dessert',
-    '{
-        "pumpkin, peeled and chopped:400 g",
-        "gelatin:5 teaspoons (15 g)",
-        "water:3 teaspoons",
-        "milk:3 cups (400 mL)",
-        "heavy cream:0.75 cups (200 mL)",
-        "maple syrup:0.5 cup cups (100 g)"
-    }',
     4,
     40,
     'snacks',
     'japanese',
-    '{
-        "Calories:324", 
-        "Fat:27",
-        "Carbs:24",
-        "Fiber:0",
-        "Sugar:22",
-        "Protein:5"
-     }',
-     '{"https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/baked-pumpkin-fondue.jpg?itok=3txi1KfQ",
-     "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/baked-pumpkin-fondue.jpg?itok=3txi1KfQ"}',
-     'https://www.youtube.com/watch?v=C6VIexjKlkQ',
-     2
+    2
+);
+
+
+INSERT INTO nutrition_info (
+    calorie, 
+    fat,
+    carbs,
+    fiber,
+    sugar,
+    protein,
+    nutrition_recipe_id
+)
+VALUES (
+    324,
+    27,
+    24,
+    0,
+    22,
+    5,
+    9
+);
+
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES  ('image', 'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/baked-pumpkin-fondue.jpg?itok=3txi1KfQ', 9);
+
+INSERT INTO recipe_media (media_type, media_url, media_recipe_id)
+VALUES ('video', 'https://www.youtube.com/watch?v=C6VIexjKlkQ', 9);
+
+
+
+INSERT INTO posts (post_text, post_recipe_id, post_user_id)
+VALUES (
+    'This ones got too many ingredients hahah',
+    5,
+    1
+);
+
+INSERT INTO posts (post_text, post_recipe_id, post_user_id)
+VALUES (
+    'Still looks good though',
+    5,
+    2
+);
+
+INSERT INTO posts (post_text, post_recipe_id, post_user_id)
+VALUES (
+    'Gonna try it out this weekend probs',
+    5,
+    2
 );

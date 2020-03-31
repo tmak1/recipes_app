@@ -1,61 +1,64 @@
 <% 
-    @recipe['nutrition_info'].tr!('{}', '')
-    nutrition_arr = @recipe['nutrition_info'].split(',')
-
-    @recipe['ingredient_list'].tr!('{}', '')
-    ingredient_arr = @recipe['ingredient_list'].split('",')
-    ingredient_arr.each do |element|
-        element.tr!('"', '')
-        element.tr!('\\', '')
-    end 
+    nutrition_arr = @data[:nutrition]
+    ingredient_arr = @data[:ingredient]
 %>
 <div class="details-recipe-main">
     <div class="details-recipe-image">
-        <img class="details-recipe-image" src="<%= @recipe['image_url_list'].tr!('{}', '') %>" alt="">
+        <img class="details-recipe-image" src="<%= @data[:recipe]['media_url'] %>" alt="">
         <div class="black"></div>
     </div>
+    <div class="likes-count-card-large">
+        <i class="fas fa-thumbs-up"></i>
+        <span><%= @data[:recipe]['recipe_vote'] %></span>
+    </div>
     <div class="details-recipe-name-card">
-        <h1><%= @recipe['recipes_name'] %> </h1>
-        <h3>By <a href="/users/<%= @recipe['users_id'] %>/recipes" class="details-remove-all-styles"><%= @recipe['users_name'] %></a> (<%= @recipe['users_created_at'].split(' ')[0] %>) </h3>
+        <h1><%= @data[:recipe]['recipe_name'] %></h1>
+        <h3>By <a href="/users/<%= @data[:recipe]['user_id'] %>/recipes" class="details-remove-all-styles"><%= @data[:recipe]['user_name'] %></a> (<%= @data[:recipe]['user_created_at'].split(' ')[0] %>) </h3>
     </div>
     <div class="details-recipe-card">
         <div class="details-nutrition-container">
             <div class="details-recipe-meta-info">
                 <div>
-                    <p><i class="fas fa-clock"></i> <%= @recipe['difficulty'] %> mins</p>
+                    <p><i class="fas fa-clock"></i> <%= @data[:recipe]['difficulty'] %> mins</p>
                 </div>
                 <div class="recipe-actions">
-                    <p><%= @recipe['recipes_votes'] %></p>
-                    <a href="" class="remove-all-styles" id="like-btn"><i class="fas fa-thumbs-up"></i></a>
-                    <a href="" class="remove-all-styles" id="save-btn"><i class="far fa-heart"></i></a>
+                    <a href="" class="remove-all-styles like-btn"><div style="display: none;"><%= @data[:recipe]['recipe_id'] %></div><i class="fas fa-thumbs-up"></i></a>
+                    <a href="" class="remove-all-styles save-btn"><div style="display: none;"><%= (logged_in? ? session[:user_id] : '') + ',' + @data[:recipe]['recipe_id'] %></div><i class="far fa-heart"></i></a>
                 </div>  
             </div>
             <div class="details-nutrition-info">
-            <% nutrition_arr.each_with_index do |n, index| 
-                n_arr = n.split(':')
-            %>
-                <div>
-                    <p class="light-text-p"><%= n_arr[0] %></p>
-                    <% if index <= 0 %>
-                        <h3><%= n_arr[1] %> cal</h3>
-                    <% else %>
-                        <h3><%= n_arr[1] %> g</h3>
-                    <% end %>
-                </div>
+            <% nutrition_arr.each do |key, value| %>
+                <% if !(%w(nutrition_id nutrition_recipe_id nutrition_created_at).include? key) %>
+                    <div>
+                        <p class="light-text-p"><%= key %></p>
+                        <% if key == 'calorie' %>
+                            <h3><%= value %> cal</h3>
+                        <% else %>
+                            <h3><%= value %> g</h3>
+                        <% end %>
+                    </div>
+                <% end %>
             <% end %>
             </div>
         </div> 
 
         <div class="details-secondary-container">
             <div class="details-ingredients-container">
-                <p class="light-text-p">ingredients  (<%= @recipe['servings'] %> servings) </p>
-                <% ingredient_arr.each do |ingred|
-                    ingred_arr = ingred.split(':') 
-                %>
-                <div class="ingredient">
-                    <p><%= ingred_arr[0] %>:</p>
-                    <p><%= ingred_arr[1] %></p>
-                </div>
+                <p class="light-text-p">ingredients  (<%= @data[:recipe]['serving'] %> serving) </p>
+                <% ingredient_arr.each do |ingred| %>
+                    <div class="ingredient"
+                         style="font-weight: 100;
+                            font-size: 15px;
+                            font-family: 'Open Sans', sans-serif;">
+                        <p><%= ingred['ingredient_desc'] %>:  
+                            <%= ingred['ingredient_amount'] %> 
+                            <%= ingred['ingredient_metric'] %> 
+                            <% if ingred['ingredient_amount_other'] != '' %>
+                                ,
+                            <% end %>
+                            <%= ingred['ingredient_amount_other'] %>
+                        </p>
+                    </div>
                 <% end %>
             </div>
             <div class="details-preparation-container">
@@ -63,16 +66,55 @@
                 <% 11.times do |t|
                     t+= 1
                     ind = "step" + t.to_s
-                    if @recipe[ind] != ''
+                    if @data[:recipe][ind] != ''
                         str = "Step " + t.to_s + ":" %>
                         <div class="steps-container">
                             <h3 class="light-text-h3"><%= str %></h3>
-                            <p class="steps-text"><%= @recipe[ind] %></p>
+                            <p class="steps-text" 
+                                style="font-weight: 100;
+                                font-size: 15px;
+                                font-family: 'Open Sans', sans-serif;">
+                            <%= @data[:recipe][ind] %></p>
                         </div>
                     <% end %>
                 <% end %>
             </div>
         </div> 
+        <div class="comments-section">
+        <h1 class="light-text-h3">Comments</h1>
+        <div class="comments-main" id="comment-main">
+            <% @data[:posts].each do |post| %>
+            <div class="comments-container">
+                <div class="comments-user-info">
+                    <%= post['user_name'] %>
+                </div>
+                <div class="comments-meta-info">
+                    <div class="comments-date-info">
+                        <%= post['post_created_at'].split(' ')[0] %>
+                    </div>
+                    <div class="comments-likes">
+                        <a href="" class="remove-all-styles like-btn"><div style="display: none;"><%= post['post_id'] %></div><i class="fas fa-thumbs-up"></i></a>
+                        <%= post['post_vote'] %> 
+                    </div>
+                </div>
+                <div class="comments-text">
+                    <textarea name="" id="" cols="20" rows="5" disabled><%= post['post_text'] %></textarea>
+                </div>
+            </div>
+            <%end%>
+        </div>
+        <div id="comment-txt">
+            <h3 class="light-text-h3">Post a comment</h3>
+            <textarea id="post-comment-txt" cols="25" rows="6"></textarea>
+            <br>
+            <button id='post-comment' style="width: 80px; font-size: 16px;">
+            Post
+            <span style="display: none;"><%= (logged_in? ? session[:user_id] : '') + ',' + @data[:recipe]['recipe_id'] %></span>
+            </button>
+        </div>
+        <button id='add-comment'>+</button>
+        </div>
     </div>
 </div>
+
 

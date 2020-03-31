@@ -58,6 +58,7 @@ nav ul div a:hover {
 
 #user-menu{
     position:relative;
+    z-index: 100;
 }
 
 /*hide the inputs*/
@@ -87,6 +88,7 @@ ul.submenu{
     min-width:100%;
     top: 65px;
     left: -5px;
+    z-index: 100;
 }
 
 ul.submenu li {
@@ -99,7 +101,7 @@ ul.submenu li a{
     padding: 10px;
     color:#666;
     text-decoration:none;
-    transition:background .3s;
+    transition: background .3s;
 }
 
 
@@ -116,6 +118,7 @@ ul.submenu li a{
     padding: 20px;
     background-color: #e1fff3;
     margin: 40px 0;
+    overflow-y: auto;
 }
 
 .category-info {
@@ -160,7 +163,7 @@ ul.submenu li a{
     height: 500px;  
     display: grid;
     grid-template-rows: 3fr 1fr;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
     background-color: #fff4f4;
     border-radius: 10px;
     transition: 0.3s;
@@ -169,7 +172,7 @@ ul.submenu li a{
   }
   
 .recipe-card:hover {
-    box-shadow: 0 18px 26px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.35);
     background-color: mistyrose
 }
 
@@ -177,18 +180,22 @@ ul.submenu li a{
     width: 100%;
     height: 350px;
     border-radius: 4px;
+    position: absolute; 
+    z-index: 2;
 }
   
 .recipe-info-card {
     padding: 0px 16px;
+    margin: 0;
 }
 
 .recipe-name {
     height: 60px;
+    margin: 0;
 }
 
 .recipe-meta-info {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     justify-content: space-between;
@@ -211,15 +218,12 @@ ul.submenu li a{
     font-size: 20px;
 }
 
-
-
 .details-recipe-main {
     width: 85%;
     margin: 0 auto;
     position: relative;
     height: 100%;
 }
-
 
 .details-recipe-image {
     width: 100%;
@@ -315,10 +319,17 @@ ul.submenu li a{
     justify-self: left;
 }
 
-.ingredient p:nth-of-type(1) {
+/* .ingredient p:nth-of-type(1) {
     padding: 15px;
     font-weight: 600;
     margin: 0;
+} */
+
+.ingredient-text {
+    color: red !important;
+    font-weight: 100;
+    font-size: 10px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .details-preparation-container {
@@ -352,8 +363,6 @@ ul.submenu li a{
 .search-result-count {
     margin: 30px;
 }
-
-
 
 .users-profile-main {
     width: 90%;
@@ -395,7 +404,6 @@ ul.submenu li a{
     border-radius: 10px;    
 }
 
-
 .users-meta-info, .users-info {
     text-align: center;
     padding: 40px;
@@ -409,21 +417,81 @@ ul.submenu li a{
     align-content: center;
 }
 
-.create-recipe-main div {
-    margin: 20px;
+.create-recipe-parts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
 }
 
-.create-ingredients-main, .create-steps-main {
+
+.create-recipe-meta {
+    display: flex;
+    flex-direction: row;
+}
+
+.create-recipe-difficulty {
     margin: 20px;
-    padding: 10px;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.create-recipe-meal_type, .create-recipe-cuisine {
+    font-size: 20px;
+    margin-left: 50px;
+}
+
+select {
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+.create-recipe-main, .create-ingredients-main, .create-steps-main {
+    width: 95%;
+    margin: 20px auto;
+}
+
+.create-recipe-main input,  
+.create-ingredients-main input, 
+.create-steps-main input, 
+.create-nutrition-container input {
+    margin: 10px;
+    font-size: 16px;
+}
+
+td{
+    padding:0 7px;
+}
+
+.ingredients-nutrition-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.create-ingredients-main , .create-nutrition-main, .create-steps-main {
+    margin: 0;
+    padding: 0;
+}
+
+.create-nutrition-container {
+    margin: 5px !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 5px;
 }
 
 .create-steps-container {
     display: grid;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: 1fr;
     grid-gap: 20px;
 }
 
+.create-steps-container div span{ 
+   display: grid;
+   grid-template-columns: 10fr 0.5fr;
+   grid-gap: 10px;
+}
 
 .login-card-main {
     width: 40%;
@@ -485,3 +553,205 @@ input[type=text], input[type=password] {
       width: 20%;
       margin: 50px auto;
   }
+
+  #add-more-ingred, #add-more-steps, #add-comment{
+    height: 60px;
+    width: 60px; 
+    margin: 20px; 
+    font-size: 1.7rem;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    line-height: 1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 10px #ccc;
+    z-index: 10;
+  }
+
+#to-top {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    display: none;
+    height: 60px;
+    width: 60px;  
+    line-height: 3.5rem;  
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    box-shadow: 0 10px 10px #ccc;
+    z-index: 10; 
+    cursor: pointer;
+}
+
+.likes-count-card-large {
+    background-color: #ce93d8;
+    padding: 20px;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    overflow-x: hidden;
+    font-size: 40px;
+}
+
+.likes-count-card-small {
+    background-color: #ce93d8;
+    padding: 10px;
+    position: relative;
+    top: -15px;
+    right: -5px;
+    float: right;
+    overflow-x: hidden;
+    font-size: 20px;
+    z-index: 100;
+}
+
+.comments-section {
+    width: 90%;
+    margin: 60px auto;
+    padding: 30px 10px;
+    background-color: #e1fff3;
+}
+
+.comments-main {
+    position: relative;
+    bottom: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.comments-container {
+    margin: 20px 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+}
+
+.comments-meta-info {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin: 20px 0;
+}
+
+.comments-text textarea{
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#comment-txt {
+    display: none; 
+    margin: 20px;
+}
+
+#comment-txt textarea {
+    font-size: 20px;
+    padding: 15px;
+    border: 1px solid #4CAF50;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+}
+
+.comments-user-info {
+    font-size: 30px;
+}
+
+.comments-date-info {
+    font-size: 20px;    
+}
+
+.comments-likes {
+    font-size: 26px;
+}
+.comments-likes a{
+    margin-right: 20px;
+}
+
+
+
+
+/* ANIMATIONS */
+
+.heartbeat {
+	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+	        animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+
+ @-webkit-keyframes heartbeat {
+    from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: center center;
+              transform-origin: center center;
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    10% {
+      -webkit-transform: scale(0.91);
+              transform: scale(0.91);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    17% {
+      -webkit-transform: scale(0.98);
+              transform: scale(0.98);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    33% {
+      -webkit-transform: scale(0.87);
+              transform: scale(0.87);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    45% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+  }
+  @keyframes heartbeat {
+    from {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: center center;
+              transform-origin: center center;
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    10% {
+      -webkit-transform: scale(0.91);
+              transform: scale(0.91);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    17% {
+      -webkit-transform: scale(0.98);
+              transform: scale(0.98);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    33% {
+      -webkit-transform: scale(0.87);
+              transform: scale(0.87);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    45% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+  }
+  

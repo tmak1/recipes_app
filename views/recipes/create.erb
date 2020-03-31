@@ -2,263 +2,154 @@
     <div class="create-recipe-main">
         <div class="create-recipe-name">
             <label for="">Recipe name:</label>
-            <input type="text" name="recipes_name">
+            <input type="text" name="recipe_name">
         </div>
-        <div class="create-recipe-servings">
-            <label for="">Recipe servings:</label>
-            <input type="number" name="recipes_servings">
-        </div> 
-        <div class="create-recipe-time">
-            <label for="">Recipe time needed:</label>
-            <input type="number" name="recipes_time">
+        <div class="create-recipe-parts">
+            <div>
+                <div class="create-recipe-meta">
+                    <div class="create-recipe-servings">
+                        <label for="">Serving:</label>
+                        <input type="number" name="recipe_serving">
+                    </div> 
+                    <div class="create-recipe-time">
+                        <label for="">Time needed:</label>
+                        <input type="number" name="recipe_time">
+                    </div>
+                </div>
+                <div class="create-recipe-tag">
+                    <label for="">Recipe tag:</label>
+                    <input type="text" name="recipe_tag">
+                </div>
+            </div>
+            <div class="create-recipe-difficulty">
+                <div class="create-recipe-meal_type">
+                    <label for="">Meal type</label>
+                    <select name="recipe_meal_type">
+                        <option value="snacks">Snacks</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                    </select>
+                </div>
+                <div class="create-recipe-cuisine">
+                    <label for="">Cuisine</label>
+                    <select name="recipe_cuisine">
+                        <option value="american">American</option>
+                        <option value="italian">Italian</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="indian">Indian</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <div class="create-recipe-image">
             <label for="">Recipe image url:</label>
-            <input type="text" name="recipes_image_url">
+            <input type="text" name="recipe_image_url">
         </div>
-        <div class="create-recipe-tag">
-            <label for="">Recipe tag:</label>
-            <input type="text" name="recipes_tag">
-        </div>
-        <div>
-            <label for="">Meal type</label>
-            <select name="recipes_meal_type">
-                <option value="snacks">Snacks</option>
-                <option value="lunch">Lunch</option>
-                <option value="dinner">Dinner</option>
-            </select>
-            <label for="">Cuisine</label>
-            <select name="recipes_cuisine">
-                <option value="american">American</option>
-                <option value="italian">Italian</option>
-                <option value="japanese">Japanese</option>
-                <option value="indian">Indian</option>
-            </select>
-        </div>     
-        <div class="create-ingredients-main">
-            <h2>Ingredients</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <td>#</td>
-                        <td>Ingredient</td>
-                        <td>Amount1</td>
-                        <td>Measure1</td>
-                        <td>Amount2</td>
-                        <td>Measure2</td>
-                        <td>Amount3</td>
-                        <td>Measure3</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><label for="">1</label></td> 
-                        <td><input type="text" name="ingredient1"></td>
-                        <td><input type="text" name="amount1a"></td>
-                        <td><select name="measure1a">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="to taste">to taste</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                        <td><input type="text" name="amount1b"></td>
-                        <td><select name="measure1b">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                        <td><input type="text" name="amount1c"></td>
-                        <td><select name="measure1c">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td><label for="">2</label>
-                        <td><input type="text" name="ingredient2"></td>
-                        <td><input type="text" name="amount2a"></td>
-                        <td><select name="measure2a">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="to taste">to taste</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                        <td><input type="text" name="amount2b"></td>
-                        <td><select name="measure2b">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                        <td><input type="text" name="amount2c"></td>
-                        <td><select name="measure2c">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td><label for="">3</label>
-                        <td><input type="text" name="ingredient3"></td>
-                        <td><input type="text" name="amount3a"></td>
-                        <td><select name="measure3a">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="to taste">to taste</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                        <td><input type="text" name="amount3b"></td>
-                        <td><select name="measure3b">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                        <td><input type="text" name="amount3c"></td>
-                        <td><select name="measure3c">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td><label for="">4</label>
-                        <td><input type="text" name="ingredient4"></td>
-                        <td><input type="text" name="amount4a"></td>
-                        <td><select name="measure4a">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="to taste">to taste</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                        <td><input type="text" name="amount4b"></td>
-                        <td><select name="measure4b">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                        <td><input type="text" name="amount4c"></td>
-                        <td><select name="measure4c">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td><label for="">5</label>
-                        <td><input type="text" name="ingredient5"></td>
-                        <td><input type="text" name="amount5a"></td>
-                        <td><select name="measure5a">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="to taste">to taste</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                        <td><input type="text" name="amount5b"></td>
-                        <td><select name="measure5b">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                        <td><input type="text" name="amount5c"></td>
-                        <td><select name="measure5c">
-                                <option value="">none</option>
-                                <option value="tablespoons">tablespoons</option>
-                                <option value="teaspoons">teaspoons</option>
-                                <option value="g">g</option>
-                                <option value="cans">cans</option>
-                                <option value="cups">cups</option>
-                                <option value="mL">mL</option>
-                                <option value="pieces">pieces</option>
-                            </select></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="ingredients-nutrition-container">     
+            <div class="create-ingredients-main">
+                <h2>Ingredients</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>Ingredient</td>
+                            <td>Amount</td>
+                            <td>Metric</td>
+                            <td>Others</td>
+                        </tr>
+                    </thead>
+                    <tbody id="ingredient-rows">
+                        <tr>
+                            <td><label for="">1</label></td> 
+                            <td><input class="input-ingred" type="text" name="ingredient1"></td>
+                            <td><input class="input-amount" type="text" name="amount1"></td>
+                            <td><select name="measure1">
+                                    <option value="">none</option>
+                                    <option value="tablespoons">tablespoons</option>
+                                    <option value="teaspoons">teaspoons</option>
+                                    <option value="g">g</option>
+                                    <option value="to taste">to taste</option>
+                                    <option value="cans">cans</option>
+                                    <option value="cups">cups</option>
+                                    <option value="mL">mL</option>
+                                    <option value="pieces">pieces</option>
+                                </select></td>
+                            <td><input class="input-others" type="text" name="others1"></td>
+                            <td><button class="remove-ingred">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">2</label>
+                            <td><input class="input-ingred" type="text" name="ingredient2"></td>
+                            <td><input class="input-amount" type="text" name="amount2"></td>
+                            <td><select name="measure2">
+                                    <option value="">none</option>
+                                    <option value="tablespoons">tablespoons</option>
+                                    <option value="teaspoons">teaspoons</option>
+                                    <option value="g">g</option>
+                                    <option value="to taste">to taste</option>
+                                    <option value="cans">cans</option>
+                                    <option value="cups">cups</option>
+                                    <option value="mL">mL</option>
+                                    <option value="pieces">pieces</option>
+                                </select></td>
+                            <td><input class="input-others" type="text" name="others2"></td>
+                            <td><button class="remove-ingred">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="add-more-ingred">+</button>
+            </div>
+            <div class="create-nutrition-main">
+                <h2>Nutrition Info</h2>
+                <div class="create-nutrition-container">
+                    <div>
+                        <label for="">Calorie</label>
+                        <input type="text" name="recipe_calorie">
+                    </div> 
+                    <div>
+                        <label for="">Fat</label>
+                        <input type="text" name="recipe_fat">
+                    </div>
+                    <div>
+                        <label for="">Carbs</label>
+                        <input type="text" name="recipe_carbs">
+                    </div> 
+                    <div>
+                        <label for="">fiber</label>
+                        <input type="text" name="recipe_fiber">
+                    </div> 
+                    <div>
+                        <label for="">Sugar</label>
+                        <input type="text" name="recipe_sugar">
+                    </div> 
+                    <div>
+                        <label for="">Protein</label>
+                        <input type="text" name="recipe_protein">
+                    </div>  
+                </div>
+            </div>
         </div>
         <div class="create-steps-main">
             <h2>Steps</h2>
-            <div class="create-steps-container"> 
-                <label for="">Step 1</label>
-                <input type="text" name="step1">
-                <label for="">Step 2</label>
-                <input type="text" name="step2">
-                <label for="">Step 3</label>
-                <input type="text" name="step3">
-                <label for="">Step 4</label>
-                <input type="text" name="step4">
-                <label for="">Step 5</label>
-                <input type="text" name="step5">
+            <div class="create-steps-container" id="steps-rows">
+                <div>
+                    <label for="">Step 1</label>
+                    <span>
+                        <input type="text" name="step1">
+                        <button class="remove-step">Delete</button>
+                    </span>
+                </div> 
+                <div> 
+                    <label for="">Step 2</label>
+                    <span>
+                        <input type="text" name="step2">
+                        <button class="remove-step">Delete</button>
+                    </span>
+                </div> 
             </div>
+            <button id='add-more-steps'>+</button>
         </div>
     </div>
     <input type="submit" form="main-form" value="Create"/>
 </form>
+<div id='to-top'><i class="fas fa-arrow-up"></i></div>

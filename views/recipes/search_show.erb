@@ -4,19 +4,23 @@
         <div class="category-container">
         <% @recipes.each do |recipe| %>
             <div class="recipe-card">
-            <a href="/recipes/<%=recipe['recipes_id']%>" class="remove-all-styles">
-                <img class="recipe-image" src="<%= recipe['image_url_list'].tr!('{}', '') %>" alt="">
+            <a href="/recipes/<%=recipe['recipe_id']%>" class="remove-all-styles" style="position: relative; z-index: 1;">
+                <div class="likes-count-card-small">
+                    <i class="fas fa-thumbs-up"></i>
+                    <span><%= recipe['recipe_vote'] %></span>
+                </div> 
+                <img class="recipe-image" src="<%= recipe['media_url']%>" alt="">
             </a> 
                 <div class="recipe-info-card">
-                    <h3 class="recipe-name"><b><%= recipe['recipes_name'] %></b></h3>
+                    <h3 class="recipe-name"><b><%= recipe['recipe_name'] %></b></h3>
                     <div class="recipe-meta-info">
                         <div>
-                            <p><i class="fas fa-clock"></i> <%= recipe['difficulty'] %> mins (<%= recipe['servings'] %> servings) </p>
+                            <p><i class="fas fa-clock"></i> <%= recipe['difficulty'] %> mins (<%= recipe['serving'] %> serving) </p>
                         </div>
                         <div class="recipe-actions">
-                            <p><%= recipe['reciipes_votes'] %></p>
-                            <a href="" class="remove-all-styles" id="like-btn"><i class="fas fa-thumbs-up"></i></a>
-                            <a href="" class="remove-all-styles" id="save-btn"><i class="far fa-heart"></i></a>
+                            <p><%= recipe['reciipe_vote'] %></p>
+                            <a href="" class="remove-all-styles like-btn"><div style="display: none;"><%= recipe['recipe_id'] %></div><i class="fas fa-thumbs-up"></i></a>
+                            <a href="" class="remove-all-styles save-btn"><div style="display: none;"><%= (logged_in? ? session[:user_id] : '') + ',' + recipe['recipe_id'] %></div><i class="far fa-heart"></i></a>
                         </div>     
                     </div>
                 </div>
