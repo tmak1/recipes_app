@@ -22,7 +22,7 @@ Create a CRUD app in ruby
 
 * A recipe can be **bookmarked** to the users list or it can be **upvoted (without refreshing the page)**
 
-* To **create** a recipe user must be logged in (username: dt1@ga.co.uk and password: 1)
+* To **create** a recipe user must be logged in (username: test@co.uk and password: 1)
 
 * Once **logged** in users can visit their profile page to look at their meta info, create new recipes, 
 look at the recipes they have created, look at the list of recipes create by other users that they have bookmarked and
