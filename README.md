@@ -28,3 +28,12 @@ Create a CRUD app in ruby
 look at the recipes they have created, look at the list of recipes create by other users that they have bookmarked and
 comment on any recipe.
 
+### Further fixes and features
+
+* Fix new user signup
+* Add ability to filter search results
+* Auto complete from search keywords
+* Listing by search keywords as suer types
+* Ability to upvote comments
+* Ability to add multiple images for a recipes when creating
+
